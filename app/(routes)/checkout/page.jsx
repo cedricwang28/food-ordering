@@ -72,7 +72,7 @@ const addToOrder=()=>{
             setLoading(false);
             toast('Order Created Successfully!');
             setUpdateCart(!updateCart)
-            SendEmail();
+            // SendEmail();
             router.replace('/confirmation');
           },(error)=>{
             setLoading(false)
@@ -84,29 +84,29 @@ const addToOrder=()=>{
   })
 }
 
-const SendEmail=async()=>{
-  try{
-    const response=await fetch('/api/send-email',{
-      method:'POST',
-      headers:{
-        'Content-Type':'application/json'
-      },
-      body:JSON.stringify({email:user?.primaryEmailAddress.emailAddress})
-    })
+// const SendEmail=async()=>{
+//   try{
+//     const response=await fetch('/api/send-email',{
+//       method:'POST',
+//       headers:{
+//         'Content-Type':'application/json'
+//       },
+//       body:JSON.stringify({email:user?.primaryEmailAddress.emailAddress})
+//     })
 
-    if(!response.ok)
-    {
-      toast('Error while sending email')
-    }
-    else{
-    toast('Confirmation Email Sent')
+//     if(!response.ok)
+//     {
+//       toast('Error while sending email')
+//     }
+//     else{
+//     toast('Confirmation Email Sent')
 
-    }
-  }catch(err)
-  {
-    toast('Error while sending email')
-  }
-}
+//     }
+//   }catch(err)
+//   {
+//     toast('Error while sending email')
+//   }
+// }
 
   return (
     <div>
